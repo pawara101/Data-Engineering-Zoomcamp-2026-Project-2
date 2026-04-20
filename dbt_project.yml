@@ -1,0 +1,34 @@
+name: 'zc_project_2'
+
+config-version: 2
+version: '0.1'
+
+profile: 'zc_project_2'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+analysis-paths: ["analysis"]
+macro-paths: ["macros"]
+
+target-path: "target"
+clean-targets:
+    - "target"
+    - "dbt_modules"
+    - "logs"
+
+require-dbt-version: [">=1.11.0", "<2.0.0"]
+
+seeds: 
+  +docs:
+    node_color: '#cd7f32'
+
+models:
+  jaffle_shop:
+    +materialized: table
+    staging:
+      +materialized: view
+      +docs:
+        node_color: 'silver'
+    +docs:
+      node_color: 'gold'
